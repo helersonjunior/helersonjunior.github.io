@@ -4,11 +4,124 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Site</title>
+    <title>login</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        .box{
+            max-width: 500px;
+            width: 90%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            padding: 50px 50px 30px 50px;
+            background: rgb(0, 0, 0, 0.8);
+            border-radius: 10px;
+            
+        }
+        .box h1{
+            margin-bottom: 30px;
+            color: #fff;
+            text-align: center;
+            text-transform: capitalize;
+        }
+        
+        .box .inputBox{
+            position: relative;
+            
+        }
+        #botao{
+            width: 30px;
+            position: absolute;
+            right: 5px;
+            
+        }
+        .box .inputBox input{
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            color: #fff;
+            letter-spacing: 1px;
+            margin-bottom: 30px;
+            border: none;
+            border-bottom: 1px solid #fff;
+            background: transparent;
+            outline: none;
+        }   
+        .box .inputBox label{
+            position: absolute;
+            top: 0;
+            left: 0;
+            letter-spacing: 1px;
+            padding: 10px 0;
+            font-size: 16px;
+            color: #fff;
+            transform: 0.5s;
+        }
+        .box .inputBox input:focus ~ label{
+            top: -20px;
+            left: 0px;
+            color: #03a9f4;
+            font-size: 12px;
+
+        }
+        .box .inputBox input:valid ~ label{
+            top: -20px;
+            left: 0px;
+            color: #03a9f4;
+            font-size: 12px;
+
+        }
+        .box input[type="submit"]{
+            
+            border: none;
+            outline: none;
+            color: #fff;
+            background: #03a9f4;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: bold;
+            margin-top: 10px;
+            cursor: pointer;            
+        }
+        #res {
+         padding-top:  20px;
+         color: white;
+         visibility: hidden;
+         
+        }
+        
+        </style>
 </head>
 <body>
-    <main>
-        <h1>Junior</h1>
-    </main>
+  
+        <div class="box">
+            
+            <h1>Login</h1>
+            <form >
+                <div class="inputBox">
+                    <input type="text"  id="usuario" autocomplete="off" maxlength="7" required >
+                    <label for="usuario">Usuario</label>
+                </div>
+                <div class="inputBox">
+                    <input type="password" id="senha" autocomplete="off" required >
+                    <label for="senha">Senha</label>
+                    <img id="botao" src="./img/mostrar.png" alt="mostrar">
+                </div>
+                <input type="submit" value="Entrar" id="entrar" onclick=" receba();return false">
+            </form>
+            <div id="res">
+                <p>res</p>
+            </div>
+        </div>
+        
+
+    <script src="./script/script.js"></script>
 </body>
 </html>
