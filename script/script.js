@@ -15,7 +15,7 @@ function receba() {
 
     else if (usuario.value == "junior" && senha.value == "123") {
 
-        location.assign("https://www.google.com.br/");
+        location.assign("home.html");
 
 
     }
