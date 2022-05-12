@@ -1,19 +1,20 @@
 
 function receba() {
-    var usuario = document.getElementById("usuario")
+    var inputUsuario = document.getElementById("usuario")
     var senha = document.getElementById("senha")
     var res = document.getElementById("res")
-
-    
-    if (usuario.value.length == 0 && senha.value.length == 0) {
+   
+    usuario = inputUsuario.value.toLowerCase()
+    console.log(usuario)
+    if (usuario.length == 0 && senha.value.length == 0) {
         res.setAttribute('style', 'visibility: visible')
-        res.innerHTML = `<p>Sem Dados</p>`
+        res.innerHTML = `<p> ? </p>`
         
         
     }
     
 
-    else if (usuario.value == "junior" && senha.value == "123") {
+    else if (usuario == "junior" && senha.value == "123") {
 
         location.assign("home.html");
 
@@ -22,7 +23,7 @@ function receba() {
     else if (usuario.value != "junior" || senha.value != "123") {
 
      
-        usuario.setAttribute('style', 'border-bottom: 1px solid red')
+        inputUsuario.setAttribute('style', 'border-bottom: 1px solid red')
         
         senha.setAttribute('style', 'border-bottom: 1px solid red')
         res.setAttribute('style', 'visibility: visible')
