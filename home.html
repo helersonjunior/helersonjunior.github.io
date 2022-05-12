@@ -1,113 +1,122 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-
+    
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body{
-            background-color: aquamarine;
-        }
-        .container{
-            max-width: 700px;
-            margin: auto;
-        }
-        header{
-            background-color: cornflowerblue;
-            text-align: right;
-        }
-        header a{
-            text-decoration: none;
-            color: white;
-        }
-        
-           
-        section h1{
-            width: 100%;
-            height: 100px;
-            color: white;
-            border-top:  1px solid white;
-            border-bottom:  1px solid white;
-            background-color: cornflowerblue;
-            padding: 5px;
-        }
-        footer {
-            padding: 10px;
-            background-color: cornflowerblue;
-            
-        }
-        .area{
-        max-width: 200px;
-            
-        }
-        textarea{
-            width: 100%;
-            resize: none;
-            outline: none;
-        }
-        input[type=button]{
-            color: cornflowerblue;
-            font-weight: bold;
-            width: 100%;
-        }
+        *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+.container{
+    max-width: 805px;
+    margin: auto;
+}
+header{
+    background-color: cornflowerblue;
+    text-align: right;
+    padding: 10px;
+}
+header a{
+    text-decoration: none;
+    color: white;
+}
 
-        @media screen and (max-width: 600px) {
-            
-            section h1{
-                color: red;
-                }
-            }
-            
-        
+section{
+    padding: 20px;
+    background-color: cornflowerblue;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+}
+section h1{
+    font-size: 16px;
+    color: white;
+}
+
+footer{
+    background-color: cornflowerblue;
+    padding: 20px;
+}
+
+footer .area {
+    width: 200px;
+    
+}
+textarea{
+    width: 100%;
+    resize: none;
+    outline: none;
+}
+input[type="button"]{
+    width: 100%;
+}
+
+@media screen and (max-width: 500px){
+    
+    footer .area{
+        width: 100%;
+    }
+}
+  
     </style>
+
 </head>
 
 <body>
     <div class="container">
-    
-    <section>
-    <header>
-        <a href="index.html">Sair</a>
-    </header>
-    
-    <h1 id="h1">oi</h1>
-        
+        <header>
+            <a href="index.html">Sair</a>
+        </header>
+        <section>
 
-    
+            <h1 id="h1">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem, quia voluptates necessitatibus dolor consectetur optio, rem fugiat alias, dignissimos commodi nemo? Facere, aliquid. Impedit consequatur voluptates totam similique! Harum, minima.</h2>
 
-    <footer>
-        <div class="area">
-            <form>
-            <textarea name="" id="area"></textarea>
-            <input type="button" value="ok" onclick="postar()">
-        </form>
-        </div>
-    </footer>
-    </section>
-  </div>
-    <script>
-        onload = function(){
-            let h1 = document.getElementById("h1")
-            let escrita = localStorage.getItem("escrita")
-            h1.innerHTML = escrita
-        }
-        function postar(){
-            let h1 = document.getElementById("h1")
-            let area = document.getElementById("area").value
-            if(area == ""){
+                
+                        
+              
 
-            }else{
-            h1.innerHTML = area
+        </section>
+        <footer>
+          
+            <div class="area">
+                <form>
+                <textarea  id="area" rows="3"></textarea>
+                <input type="button" value="ok" onclick="postar()">
+                </form>
+            </div>
 
-            localStorage.setItem("escrita", area)
+        </footer>
+
+        <script>
+            onload = function(){
+                let h1 = document.getElementById("h1")
+                let escrita = localStorage.getItem("escrita")
+                h1.innerHTML = escrita
             }
-        }
-    </script>
+            function postar(){
+                
+                let h1 = document.getElementById("h1")
+                let area = document.getElementById("area").value
+
+                console.log(area)
+                if(area == ""){
+    
+                }else{
+                h1.innerHTML = area
+    
+                localStorage.setItem("escrita", area)
+                }
+            }
+        </script>
 </body>
 
 </html>
