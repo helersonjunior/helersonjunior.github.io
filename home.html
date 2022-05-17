@@ -6,69 +6,92 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    
+
     <style>
-        *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-body{
-    font-family: Arial, Helvetica, sans-serif;
-    
-}
-.container{
-    max-width: 805px;
-    margin: auto;
-}
-header{
-    background-color: cornflowerblue;
-    text-align: right;
-    padding: 10px;
-}
-header a{
-    text-decoration: none;
-    color: white;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-section{
-    padding: 20px;
-    background-color: cornflowerblue;
-    border-top: 1px solid white;
-    border-bottom: 1px solid white;
-}
-section h1{
-    font-size: 16px;
-    color: white;
-}
+        body {
+            font-family: Arial, Helvetica, sans-serif;
 
-footer{
-    background-color: cornflowerblue;
-    padding: 20px;
-}
+        }
 
-footer .area {
-    width: 200px;
-    
-}
-textarea{
-    width: 100%;
-    resize: none;
-    outline: none;
-}
-input[type="button"]{
-    width: 100%;
-}
+        .container {
+            max-width: 805px;
+            margin: auto;
+            
+        }
 
-@media screen and (max-width: 500px){
-    
-    footer .area{
-        width: 100%;
-    }
-}
-  
+        header {
+            background-color: cornflowerblue;
+            text-align: right;
+            padding: 10px;
+        }
+
+        header a {
+            text-decoration: none;
+            color: white;
+        }
+
+        section {
+            height: 200px;
+            padding: 20px;
+            background-color: cornflowerblue;
+            border-top: 1px solid white;
+            border-bottom: 1px solid white;
+            position: relative;
+        }
+        span{
+            position: absolute;
+            right: 2%;
+            bottom: 2%;
+            color: white;
+            display: none;
+            font-size: 25px;
+            cursor: pointer;
+        }
+
+        section h1 {
+            font-size: 16px;
+            color: white;
+        }
+
+        footer {
+            background-color: cornflowerblue;
+            padding: 20px;
+        }
+
+        footer .area {
+            width: 200px;
+
+        }
+
+        textarea {
+            width: 100%;
+            resize: none;
+            outline: none;
+        }
+
+        input[type="button"] {
+            width: 48.6%;
+            display: inline-block;
+        }
+        input[type="reset"] {
+            width: 100%;
+            padding: 3px;
+            display: inline-block;
+        }
+
+        @media screen and (max-width: 500px) {
+
+            footer .area {
+                width: 100%;
+            }
+        }
     </style>
-
 </head>
 
 <body>
@@ -77,46 +100,63 @@ input[type="button"]{
             <a href="index.html">Sair</a>
         </header>
         <section>
-
-            <h1 id="h1">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem, quia voluptates necessitatibus dolor consectetur optio, rem fugiat alias, dignissimos commodi nemo? Facere, aliquid. Impedit consequatur voluptates totam similique! Harum, minima.</h2>
-
-                
-                        
-              
-
+            
+            <h1 id="h1"></h1>
+            <span onclick="limpar()" id="sumir">✖</span>
         </section>
+        
+        
         <footer>
-          
+
             <div class="area">
                 <form>
-                <textarea  id="area" rows="3"></textarea>
-                <input type="button" value="ok" onclick="postar()">
+                    <textarea id="area" rows="3"></textarea>
+                    <!-- <input type="submit" value="ok" onclick="postar()"> -->
+                    <input type="reset" value="Postar" onclick="postar()">
                 </form>
             </div>
 
         </footer>
-
+        </div>
         <script>
-            onload = function(){
+            onload = function () {
                 let h1 = document.getElementById("h1")
+                let span = document.getElementById("sumir")
                 let escrita = localStorage.getItem("escrita")
-                h1.innerHTML = escrita
-            }
-            function postar(){
+                h1.innerHTML = escrita 
                 
+                if(escrita == null){
+                    span.setAttribute('style', 'display: none')
+                }else{
+                span.setAttribute('style', 'display: block')
+                }
+            }
+            function limpar(){
+            let h1 = document.getElementById("h1")
+            let span = document.getElementById("sumir")
+            localStorage.removeItem("escrita")
+            h1.innerHTML = ""
+            
+                span.setAttribute('style', 'display: none')
+            
+            console.log(palavra)
+        }
+            function postar() {
+
                 let h1 = document.getElementById("h1")
                 let area = document.getElementById("area").value
+                let span = document.getElementById("sumir")
 
                 console.log(area)
-                if(area == ""){
-    
-                }else{
-                h1.innerHTML = area
-    
-                localStorage.setItem("escrita", area)
+                if (area == "") {
+
+                } else {
+                    h1.innerHTML = area
+
+                    localStorage.setItem("escrita", area)
+                    span.setAttribute('style', 'display: block')
                 }
             }
         </script>
 </body>
-
 </html>
