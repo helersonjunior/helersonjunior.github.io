@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-
-    <style>
-        * {
+</head>
+<style>
+    * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -43,6 +42,11 @@
             border-top: 1px solid white;
             border-bottom: 1px solid white;
             position: relative;
+            color: white;
+        }
+        .div{
+            background-color: rgb(234, 101, 53);
+            padding: 10px;
         }
         span{
             position: absolute;
@@ -56,7 +60,7 @@
 
         section h1 {
             font-size: 16px;
-            color: white;
+            padding: 10px;
         }
 
         footer {
@@ -91,72 +95,98 @@
                 width: 100%;
             }
         }
-    </style>
-</head>
-
+</style>
 <body>
     <div class="container">
         <header>
             <a href="index.html">Sair</a>
         </header>
         <section>
+            <div class="div">
+                <h1>Parabéns Eliene</h1>
+            </div>
             
             <h1 id="h1"></h1>
-            <span onclick="limpar()" id="sumir">✖</span>
+            <span onclick="apagar()" id="sumir">✖</span>
         </section>
         
         
         <footer>
-
+    
             <div class="area">
                 <form>
-                    <textarea id="area" rows="3"></textarea>
+                    <textarea id="input" rows="3"></textarea>
                     <!-- <input type="submit" value="ok" onclick="postar()"> -->
                     <input type="reset" value="Postar" onclick="postar()">
                 </form>
             </div>
-
+    
         </footer>
         </div>
-        <script>
-            onload = function () {
-                let h1 = document.getElementById("h1")
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyBXO9LPH-XZKxt5W78oT8n2j7SSuedBNjU",
+            authDomain: "textarea-e9dc8.firebaseapp.com",
+            projectId: "textarea-e9dc8",
+            storageBucket: "textarea-e9dc8.appspot.com",
+            messagingSenderId: "169738151392",
+            appId: "1:169738151392:web:c4810ec4089f58b043f785",
+            measurementId: "G-D5WZPWPNX8"
+        }
+
+        firebase.initializeApp(firebaseConfig)
+        const area = firebase.firestore()
+
+
+        area.collection("area").onSnapshot((snapshot) => {
+            snapshot.forEach((doc) => {
+                let escrita = doc.data()
+                let p = document.getElementById("h1")
                 let span = document.getElementById("sumir")
-                let escrita = localStorage.getItem("escrita")
-                h1.innerHTML = escrita 
-                
-                if(escrita == null){
+
+                if(escrita.texto == undefined){
+                    
+                    p.innerHTML = ""
                     span.setAttribute('style', 'display: none')
                 }else{
-                span.setAttribute('style', 'display: block')
-                }
-            }
-            function limpar(){
-            let h1 = document.getElementById("h1")
-            let span = document.getElementById("sumir")
-            localStorage.removeItem("escrita")
-            h1.innerHTML = ""
-            
-                span.setAttribute('style', 'display: none')
-            
-            console.log(palavra)
-        }
-            function postar() {
-
-                let h1 = document.getElementById("h1")
-                let area = document.getElementById("area").value
-                let span = document.getElementById("sumir")
-
-                console.log(area)
-                if (area == "") {
-
-                } else {
-                    h1.innerHTML = area
-
-                    localStorage.setItem("escrita", area)
+                    p.innerHTML = escrita.texto
                     span.setAttribute('style', 'display: block')
+
                 }
-            }
-        </script>
+                
+            })
+        })
+
+        function postar() {
+            let input = document.getElementById("input")
+            console.log(input.value)
+            area.collection("area").doc("tiFLYZdDat2Hn2FUEatF").update(
+                {
+                    texto: input.value
+
+                }).then(() => {
+                    console.log("documento inserido com sucesso")
+                }).catch(err => {
+                    console.log(err)
+                })
+        }
+
+        function apagar(){
+              
+    area.collection("area").doc("tiFLYZdDat2Hn2FUEatF").update(
+            {
+                texto: firebase.firestore.FieldValue.delete()
+
+            }).then(() => {
+                console.log("documento inserido com sucesso")
+            }).catch(err => {
+                console.log(err)
+            }) 
+        }
+    </script>
 </body>
 </html>
