@@ -51,7 +51,9 @@
             border-radius: 5px;
             text-indent: 30px;
         }
-    
+        img{
+            width: 20px;
+        }
             
         
         .apagar{
@@ -115,8 +117,8 @@
         <section>
             <div class="div">
                 <h1 style="text-align: center">Feliz Aniversário Eliene ! 🎂 👏🏽 👏🏽</h1><br>
-                <p>Nesse dia especial para você,quero lhe desejar muita saúde, felicidades e muito amor,que continue sendo essa pessoa humilde, gente boa, e dedicada nas coisas que você faz.</p>
-                <p>Você é uma das minhas pessoas Preferidas 🤍 💚</p>
+                <p>Nesse dia especial para você, quero lhe desejar muita saúde, paz, amor e muitas alegrias, que continue sendo essa pessoa humilde, gente boa, e dedicada nas coisas que faz, Um grande abraço e muitas felicidades</p>
+                <p>Você é uma das minhas pessoas Preferidas <img src="./img/coração.jpg" alt=""></p>
             </div>
             
             <div id="apagar">
@@ -132,7 +134,7 @@
                 <form>
                     <textarea id="input" rows="3" placeholder="Digite..."></textarea>
                     <!-- <input type="submit" value="ok" onclick="postar()"> -->
-                    <input type="reset" value="Postar" onclick="postar()">
+                    <input type="reset" value="OK" onclick="postar()">
                 </form>
             </div>
     
@@ -180,7 +182,7 @@
             let input = document.getElementById("input")
             
             if(input.value.length == ""){
-                //alert("Campo Vaziu")
+                alert("Campo Vaziu")
             }else{
             area.collection("area").doc("tiFLYZdDat2Hn2FUEatF").update(
                 {
