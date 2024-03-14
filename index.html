@@ -1,1 +1,77 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><link rel="icon" href="./favicon.png"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#000000"/><meta name="description" content="Web site created using create-react-app"/><link rel="apple-touch-icon" href="./logo192.png"/><link rel="manifest" href="./manifest.json"/><title>HJ</title><script async src="https://www.googletagmanager.com/gtag/js?id=G-NSK4C3JYYB"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-NSK4C3JYYB")</script><script defer="defer" src="./static/js/main.687644ee.js"></script><link href="./static/css/main.be97a69d.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"></div></body></html>
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Links</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <section class="primeira">
+        <header>
+            <div>
+                <img class="profile-picture gradient" src="./images/Perfil_4.jpg" alt="Foto de perfil">
+                <h1 class="username">@Helerson</h1>
+            </div>
+            <div class="info">---- Mensagem enviada</div>
+        </header>
+
+        <ul class="list">
+
+            <!------------------------------------------->
+            <li class="list-item gradient">
+                <a class="link" href="https://t.me/helerson">
+                    Telegram
+                    <img src="./images/telegram.png" alt="Telegram">
+                </a>
+            </li>
+
+            <!------------------------------------------->
+            <li class="list-item gradient">
+                <a class="link" href="mailto:helersonjunior@gmail.com?subject=">
+                    E-mail
+                    <img src="./images/o-email.png" alt="email">
+                </a>
+            </li>
+
+            <!------------------------------------------->
+            <li class=" gradient eft ">
+                <form>
+                    <input class="input inputName" placeholder="Nome...">
+                    <input class="input inputMsg" placeholder="Mensagem...">
+                </form>
+                <button class="btn">Enviar</button>
+            </li>
+
+        </ul>
+
+        <footer>
+            ____________________
+        </footer>
+
+    </section>
+
+    <!------------------------------------------->
+    <section class="segunda">
+        <img class="App-logo" src="images/logo.jpg" alt="foto">
+    </section>
+
+    <!------------------------------------------->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+    <!------------------------------------------->
+    <script src="data_hora.js"></script>
+    <script src="script.js"></script>
+    
+</body>
+
+</html>
