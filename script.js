@@ -98,4 +98,20 @@ async function click() {
 
 click()
 
+// Referência ao documento de contagem de refreshes
+const contadorRef = db.collection('turmaA').doc('contador');
+
+// Incrementar contador de refreshes
+window.onload = function() {
+  contadorRef.get().then(doc => {
+    if (doc.exists) {
+      const contadorAtual = doc.data().contador || 0;
+      contadorRef.update({ contador: contadorAtual + 1 });
+    } else {
+      contadorRef.set({ contador: 1 });
+    }
+  }).catch(error => {
+    console.log("Erro ao acessar o Firestore:", error);
+  });
+};
 
